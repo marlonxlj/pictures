@@ -1,19 +1,21 @@
 ##pod Spec 为自己的项目添加pod管理功能.
 ###前言：
   上一篇文章中提到，因为自己在操作的时候遇到很多坑，所在在此做一个记录，同样也希望可以帮到在这个操作上遇到坑的人。
-  本文将用配图和加文字的方式，以最直观的方式呈现操作细节。如果文中有错误的地方，请大家指出以便即时做出调整。
+  本文将采用配图和加文字的方式，以最直观的方式呈现操作细节。如果文中有错误的地方，请大家指出以便即时做出调整。
 ###一、首先在自己的github中添加新的管理目录
-1.进入github账号管理中心，创建管理目录。
+####1.进入github账号管理中心，创建管理目录。
   以上过程请参考下图：
+   
+  ![图片1](/Users/x/Desktop/未命名文件夹/1.png)
   
-  ![图片1](https://github.com/marlonxlj/pictures/blob/master/1.png)
+  ![图片1](/Users/x/Desktop/未命名文件夹/2.png)
   
-  ![图片2](https://github.com/marlonxlj/pictures/blob/master/2.png)
-  
-  ![图片3](https://github.com/marlonxlj/pictures/blob/master/3.png)
-  
-2.上述创建目录完成，接下来做上传代码至github仓库。在此将按照空仓库的方式，在终端进行上传。操作的命令请参数github官网信息
+  ![图片1](/Users/x/Desktop/未命名文件夹/3.png)
 
+####2.上述创建目录完成，接下来做上传代码至github仓库。在此将按照空仓库的方式，在终端进行上传。操作的命令请参数github官网信息
+
+ ![图片1](/Users/x/Desktop/未命名文件夹/4.png)
+ 
 > ``echo "# XLJSegScrollView" >> README.md``
 > ``git init``
 > ``git add README.md``
@@ -21,9 +23,10 @@
 > ``git remote add origin https://github.com/marlonxlj/XLJSegScrollView.git``
 > ``git push -u origin master``
 
-请参考下图:
+####请参考下图:
 打开终端切换到本地工程的目录下面;
-
+![图片1](/Users/x/Desktop/未命名文件夹/6.png)
+![图片1](/Users/x/Desktop/未命名文件夹/7.png)
 
 ###二、创建pod Spec文件
 根据上面的步骤操作完成，github仓库中有了你上传的代码。接下来要做的就是创建pod spec 文件，同样终端操作。pod 里面有一些命令，不在此做介绍，具体的使用方法：pod --help查看所有的命令。
@@ -186,23 +189,31 @@
 
 
 ###四、上传到pod服务器
-上面的步骤做完了，就是对本地的`XLJSegScrollView.podspec `进行正确性验证。如下图:
+####上面的步骤做完了，就是对本地的`XLJSegScrollView.podspec `进行正确性验证。如下图:
 
-命令:`pod spec lint --verbose`
+####命令:`pod spec lint --verbose`
+![图片1](/Users/x/Desktop/未命名文件夹/8.png)
 
-错误原因是没有在pod服务器中添加版本号信息.
+###错误原因是没有在pod服务器中添加版本号信息.
 ##很重要##
 给pod添加tag信息，及版本号信息:
 
 `git tag 0.0.1`
 
 `git push --tag`
+![图片1](/Users/x/Desktop/未命名文件夹/9.png)
 ###五、验证pod功能添加是否成功
 `pod search XLJSegScrollView`
 
 `pod trunk push`
 
-当出现下面这个错误的时候，心里就像出现了好多好多的马，因为在`pod spec lint`的时候都是成功。在google了很多后，得到一个信息那就是等，耐心的等，为此我重复的等了40分钟后成功上传。
+####当出现下面这个错误的时候，心里就像出现了好多好多的马，因为在`pod spec lint`的时候都是成功。在google了很多后，得到一个信息那就是等，耐心的等，为此我重复的等了40分钟后成功上传。
 `[!]There was an error pushing a new version to trunk: getaddrinfo: nodename nor servname provided, or not known
 `
-网络不好的情况下，请翻....,在不知重复了多少次后总算成功了。
+![图片1](/Users/x/Desktop/未命名文件夹/10.png)
+####网络不好的情况下，请翻....,在不知重复了多少次后总算成功了。
+
+![图片1](/Users/x/Desktop/未命名文件夹/11.png)
+
+![图片1](/Users/x/Desktop/未命名文件夹/12.png)
+
